@@ -101,6 +101,7 @@
 	.right.carousel-control, .left.carousel-control {
        display: none;
      }
+	 
     </style>
 
   <script>
@@ -129,8 +130,9 @@
             <div class="item"></div> 
 			<div class="item"></div> 
 			<div class="item"></div> 
+			<div id="home" class="item"><iframe src="http://www.alyrose.org/#!home/c1xay"  border="0" frameborder="0"></iframe></div>
         </div>
-
+        
         <!-- Controls -->
         <a rel="nofollow" rel="noreferrer"class="left carousel-control" href="#carouselFade" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -151,6 +153,11 @@
     $('#carouselFade').carousel({
 		interval: 2000
 	});
+	$('#carouselFade').on('slide.bs.carousel', function (ev) {
+		var id = ev.relatedTarget.id;
+		if(id == 'home') {
+		}
+    })
   </script>
 
 </body>
