@@ -98,6 +98,9 @@
       background-position: center center;
       background-repeat: no-repeat;
     }
+	.right.carousel-control, .left.carousel-control {
+       display: none;
+     }
     </style>
 
   <script>
@@ -145,7 +148,9 @@
 
   
     <script>
-    $('#carouselFade').carousel();
+    $('#carouselFade').carousel({
+		interval: 2000
+	});
   </script>
 
 </body>
