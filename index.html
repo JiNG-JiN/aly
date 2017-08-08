@@ -76,18 +76,12 @@
      }
 	 
     </style>
-
-  <script> window.console = window.console || function(t) {}; </script>
-
-  
-  
   <script> if (document.location.search.match(/type=embed/gi)) { window.parent.postMessage("resize", "*"); } </script> 
 </head>
 
 <body translate="no" >
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <div id="carouselFade" class="carousel slide carousel-fade" data-ride="carousel">
 
         <!-- Wrapper for slides -->
@@ -95,7 +89,7 @@
             <div class="item active"></div>
             <div class="item"></div> 
 			<div class="item"></div> 
-			<div id="lastCarousel" class="item"></div> 
+			<div class="last item"></div> 
         </div>
         
         <!-- Controls -->
@@ -109,17 +103,25 @@
         </a>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script
+      src="https://code.jquery.com/jquery-1.11.1.min.js"
+      integrity="sha256-VAvG3sHdS5LqTT+5A/aeq/bZGa/Uj04xKxY8KM/w9EE="
+      crossorigin="anonymous">
+    </script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
   
     <script>
     $('#carouselFade').carousel({
-		interval: 2000
+		interval: 2000,
+        wrap: false
 	});
-	$('#lastCarousel').on('slide.bs.carousel', function (ev) {
-        alert('A new slide is about to be shown!');
+	$('#carouselFade').on('slid.bs.carousel', function (ev) {
+        if($(ev.relatedTarget).hasClass('last')) {
+           $('#carouselFade').carousel('pause');
+           window.location.href = "https://www.alyrose.org/home"; 
+        }
     })
   </script>
 
